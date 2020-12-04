@@ -1,0 +1,35 @@
+name: deploy
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'tag'
+        required: true
+        default: 'master'
+      related-issue-id:
+        description: 'related issue id'
+        required: true
+        default: ''
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+        with:
+          # https://github.com/actions/checkout/issues/217
+          fetch-depth: 0
+      - run: |
+          git checkout ${{ github.event.inputs.tag }}
+      
+
+      - run: |
+          echo "deploying package! (fake)"
+
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ github.event.inputs.related-issue-id }}
+          body: |
+            Deployed OK: https://github.com/bitsofinfo/github-actions-demo/actions/runs/${{ env.GITHUB_RUN_ID }}
