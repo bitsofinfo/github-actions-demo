@@ -38,6 +38,6 @@ jobs:
         id: create-issue
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_RUN_ID: ${{ GITHUB_RUN_ID }}
+          GITHUB_RUN_ID: ${{ env.GITHUB_RUN_ID }}
         with:
           filename: .github/issue.build-test.complete.md
