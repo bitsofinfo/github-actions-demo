@@ -34,9 +34,9 @@ jobs:
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
-        env:
-          GITHUB_RUN_ID: ${{env.GITHUB_RUN_ID}}
         with:
           issue-number: ${{ github.event.inputs.related-issue-id }}
+          env:
+            GITHUB_RUN_ID: ${{ env.GITHUB_RUN_ID }}
           body: |
-            Deployed OK: https://github.com/bitsofinfo/github-actions-demo/actions/runs/${{env.GITHUB_RUN_ID}}
+            Deployed OK: https://github.com/bitsofinfo/github-actions-demo/actions/runs/${{github.run_id}}
