@@ -39,4 +39,4 @@ jobs:
           env:
             GITHUB_RUN_ID: ${{ env.GITHUB_RUN_ID }}
           body: |
-            Deployed OK: https://github.com/bitsofinfo/github-actions-demo/actions/runs/${{github.run_id}}
+            Deployed OK: https://github.com/bitsofinfo/github-actions-demo/actions/runs/${{ github.run_id }}
