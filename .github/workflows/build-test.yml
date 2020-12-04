@@ -20,21 +20,13 @@ jobs:
       - run: |
           git checkout ${{ github.event.inputs.tag }}
       
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - run: |
-        echo "building package! (fake)"
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - run: |
-        echo "testing! (fake)"
+      - run: |
+          echo "building package! (fake)"
 
-  create-issue:
-    runs-on: ubuntu-latest
-    steps:
+      - run: |
+          echo "testing! (fake)"
+
       - uses: JasonEtco/create-an-issue@v2
         id: create-issue
         env:
