@@ -34,7 +34,7 @@ jobs:
           python ./demo.py dog
 
           EXIT_CODE=$?
-          echo "run_script_exit_code::$EXIT_CODE" >> $GITHUB_ENV
+          echo "run_script_exit_code=$EXIT_CODE" >> $GITHUB_ENV
 
       - uses: JasonEtco/create-an-issue@v2
         id: create-issue
