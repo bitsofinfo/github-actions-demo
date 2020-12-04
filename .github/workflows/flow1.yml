@@ -25,6 +25,7 @@ jobs:
           echo "dog"
 
       - name: run-script
+        id: run-script
         run: |
           python -m venv demo.ve
           source demo.ve/bin/activate
