@@ -16,7 +16,7 @@ jobs:
         with:
           fetch-depth: 0
       - run: |
-          git checkout ${{ github.event.inputs.release-version }}
+          git checkout ${{ github.event.inputs.tag }}
           git tag
           git status
       
