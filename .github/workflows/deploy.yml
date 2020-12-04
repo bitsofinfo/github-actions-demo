@@ -37,4 +37,4 @@ jobs:
         with:
           issue-number: ${{ github.event.inputs.related-issue-id }}
           body: |
-            Deployed OK: https://github.com/bitsofinfo/github-actions-demo/actions/runs/${{env.GITHUB_RUN_ID}}
+            Deployed OK: https://github.com/bitsofinfo/github-actions-demo/actions/runs/${{GITHUB_RUN_ID}}
