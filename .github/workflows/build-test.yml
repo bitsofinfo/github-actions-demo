@@ -2,7 +2,7 @@ name: build-and-test
 on:
   workflow_dispatch:
     inputs:
-      name:
+      tag:
         description: 'tag'
         required: true
         default: 'master'
