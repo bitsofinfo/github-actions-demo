@@ -26,15 +26,15 @@ jobs:
       - run: |
           echo "deploying package! (fake)"
 
-      - name: initial labeling
-        uses: andymckay/labeler@master
-        with:
-          add-labels: "deployed"
-          #remove-labels: "in progress"
+      - name: label
+        uses: KeisukeYamashita/attach-labels@v1
+        with: 
+          labels: deployed
+          number: ${{ github.event.inputs.related-issue-id }}
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{ github.event.inputs.related-issue-id }}
           body: |
-            Deployed OK: https://github.com/bitsofinfo/github-actions-demo/actions/runs/${env.GITHUB_RUN_ID}
+            Deployed OK: https://github.com/bitsofinfo/github-actions-demo/actions/runs/${{env.GITHUB_RUN_ID}}
