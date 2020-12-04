@@ -34,7 +34,7 @@ jobs:
           python ./demo.py dog
 
           EXIT_CODE=$?
-          echo "run-script-exit-code::$EXIT_CODE" >> $GITHUB_ENV
+          echo "run_script_exit_code::$EXIT_CODE" >> $GITHUB_ENV
 
       - uses: JasonEtco/create-an-issue@v2
         id: create-issue
@@ -46,4 +46,4 @@ jobs:
 
       - run: 'echo Created issue number ${{ steps.create-issue.outputs.number }}'
       - run: 'echo Created ${{ steps.create-issue.outputs.url }}'
-      - run: 'echo run-script exit-code = $run-script-exit-code'
+      - run: 'echo run-script exit-code = $run_script_exit_code'
