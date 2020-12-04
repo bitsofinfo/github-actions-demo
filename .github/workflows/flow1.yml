@@ -28,6 +28,7 @@ jobs:
         run: |
           python -m venv demo.ve
           source demo.ve/bin/activate
+          pip install -r requirements.txt
           which python
           python ./demo.py dog
 
