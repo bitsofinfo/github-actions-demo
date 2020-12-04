@@ -46,4 +46,4 @@ jobs:
 
       - run: 'echo Created issue number ${{ steps.create-issue.outputs.number }}'
       - run: 'echo Created ${{ steps.create-issue.outputs.url }}'
-      - run: 'echo run-script exit-code ${{ steps.run-script.run-script-exit-code }}'
+      - run: 'echo run-script exit-code = $EXIT_CODE'
