@@ -42,9 +42,10 @@ jobs:
         id: create_deployment
         uses: octokit/request-action@v2.x
         with:
-          route: POST /repos/:repository/deployments
+          route: POST /repos/{owner}/{repository}/deployments
           repository: github-actions-demo
-          ref: refs/tags/1.0.0
+          owner: bitsofinfo
+          ref: 1.0.0
           environment: dev
           auto_merge: false
         env:
