@@ -37,3 +37,15 @@ jobs:
           issue-number: ${{ github.event.inputs.related-issue-id }}
           body: |
             Deployed OK: https://github.com/bitsofinfo/github-actions-demo/actions/runs/${{ github.run_id }}
+
+      - name: create deployment
+        id: create_deployment
+        uses: octokit/request-action@v2.x
+        with:
+          route: POST /repos/:repository/deployments
+          repository: github-actions-demo
+          ref: refs/tags/1.0.0
+          environment: dev
+          auto_merge: false
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
