@@ -20,6 +20,37 @@ jobs:
       - run: |
           git checkout ${{ github.event.inputs.tag }}
       
+      # setup python
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8' 
+      
+      # setup node
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+
+      # setup tooling
+      - name: setup-tools
+        run: |
+          apt-get install jq
+          snap install yq
+          npm install -g serverless@2.13.0
+          pip install virtualenv  
+          python -m venv demo.ve
+          source demo.ve/bin/activate
+          pip install wheel
+          pip install -r requirements.txt
+
+      # setup python
+      - name: setup-py
+        run: |
+          pip install virtualenv  
+          python -m venv demo.ve
+          source demo.ve/bin/activate
+          pip install wheel
+          pip install -r requirements.txt
+
 
       - run: |
           echo "building package! (fake)"
@@ -27,10 +58,10 @@ jobs:
       - run: |
           echo "testing! (fake)"
 
-      - uses: JasonEtco/create-an-issue@v2
-        id: create-issue
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_RUN_ID: ${{ env.GITHUB_RUN_ID }}
-        with:
-          filename: .github/issue.build-test.complete.md
+      #- uses: JasonEtco/create-an-issue@v2
+      #  id: create-issue
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #    GITHUB_RUN_ID: ${{ env.GITHUB_RUN_ID }}
+      #  with:
+      #    filename: .github/issue.build-test.complete.md
