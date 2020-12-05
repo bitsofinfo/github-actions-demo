@@ -18,7 +18,6 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v2
         with:
-          # https://github.com/actions/checkout/issues/217
           fetch-depth: 0
       - run: |
           git checkout ${{ github.event.inputs.tag }}
@@ -36,7 +35,5 @@ jobs:
         uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{ github.event.inputs.related-issue-id }}
-          #env:
-          #  GITHUB_RUN_ID: ${{ env.GITHUB_RUN_ID }}
           body: |
-            Deployed OK: https://github.com/bitsofinfo/github-actions-demo/actions/runs/ ${{ github.run_id }}
+            Deployed OK: /${{ github.run_id }}
