@@ -36,4 +36,4 @@ jobs:
         with:
           issue-number: ${{ github.event.inputs.related-issue-id }}
           body: |
-            Deployed OK: /${{ github.run_id }}
+            Deployed OK: /runs/${{ github.run_id }}
