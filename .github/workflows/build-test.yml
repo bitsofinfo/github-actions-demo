@@ -33,7 +33,7 @@ jobs:
       # setup tooling
       - name: setup-tools
         run: |
-          apt-get install jq
+          sudo apt-get install jq
           snap install yq
           npm install -g serverless@2.13.0
           pip install virtualenv  
